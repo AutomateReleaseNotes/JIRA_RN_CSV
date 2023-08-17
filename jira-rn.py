@@ -28,33 +28,32 @@ def categorize_jira_tickets():
         for row in reader:
             # Refer JIRA issue type in .csv file and modify the columns
             ticket_type = row[4]
-            # To replace Ticket summary to Release Note use Release Note column value
-            ticket_summary = row[0]
+            ticket_releasenote = row[0]
             ticket_assignee = row[14]
             ticket_key = row[1]
 
             if "MOB" not in ticket_key:
                 if ticket_type == "Bug":
-                    resolved_issues_web.append([ticket_key, ticket_summary, ticket_assignee])
+                    resolved_issues_web.append([ticket_key, ticket_releasenote, ticket_assignee])
                 else:
-                    whats_new_web.append([ticket_key, ticket_summary, ticket_assignee])
+                    whats_new_web.append([ticket_key, ticket_releasenote, ticket_assignee])
             else:
-                if "[iOS]" in ticket_summary:
+                if "[iOS]" in ticket_releasenote:
                     if ticket_type == "Bug":
-                        resolved_issues_mobile_ios.append([ticket_key, ticket_summary, ticket_assignee])
+                        resolved_issues_mobile_ios.append([ticket_key, ticket_releasenote, ticket_assignee])
                     else:
-                        whats_new_mobile_ios.append([ticket_key, ticket_summary, ticket_assignee])
-                elif "[Android]" in ticket_summary:
+                        whats_new_mobile_ios.append([ticket_key, ticket_releasenote, ticket_assignee])
+                elif "[Android]" in ticket_releasenote:
                     if ticket_type == "Bug":
-                        resolved_issues_mobile_android.append([ticket_key, ticket_summary, ticket_assignee])
+                        resolved_issues_mobile_android.append([ticket_key, ticket_releasenote, ticket_assignee])
                     else:
-                        whats_new_mobile_android.append([ticket_key, ticket_summary, ticket_assignee])
+                        whats_new_mobile_android.append([ticket_key, ticket_releasenote, ticket_assignee])
 
         # Generate Notion page code for What's New for Web
-        html_code += "<h2>What's New for Web</h2>\n"
+        html_code += "<h2>What's New and Enhancements-Web</h2>\n"
         html_code += "<toggle>\n"
         html_code += "<table>\n"
-        html_code += "<tr><th>Jira ID</th><th>Summary</th><th>Assignee</th></tr>\n"
+        html_code += "<tr><th>Jira ID</th><th>Release Note</th><th>Assignee</th></tr>\n"
         for ticket in whats_new_web:
             issue_url = base_url + ticket[0]
             html_code += f'<tr><td><a href="{issue_url}">{ticket[0]}</a></td><td>{ticket[1]}</td><td>{ticket[2]}</td></tr>\n'
@@ -62,10 +61,10 @@ def categorize_jira_tickets():
         html_code += "</toggle>\n"
 
         # Generate Notion page code for Resolved Issues for Web
-        html_code += "<h2>Resolved Issues for Web</h2>\n"
+        html_code += "<h2>Resolved Issues-Web</h2>\n"
         html_code += "<toggle>\n"
         html_code += "<table>\n"
-        html_code += "<tr><th>Jira ID</th><th>Summary</th><th>Assignee</th></tr>\n"
+        html_code += "<tr><th>Jira ID</th><th>Release Note</th><th>Assignee</th></tr>\n"
         for ticket in resolved_issues_web:
             issue_url = base_url + ticket[0]
             html_code += f'<tr><td><a href="{issue_url}">{ticket[0]}</a></td><td>{ticket[1]}</td><td>{ticket[2]}</td></tr>\n'
@@ -73,10 +72,10 @@ def categorize_jira_tickets():
         html_code += "</toggle>\n"
 
         # Generate Notion page code for What's New for Mobile (iOS)
-        html_code += "<h2>What's New for Mobile (iOS)</h2>\n"
+        html_code += "<h2>What's New and Enhancements-Mobile(iOS)</h2>\n"
         html_code += "<toggle>\n"
         html_code += "<table>\n"
-        html_code += "<tr><th>Jira ID</th><th>Summary</th><th>Assignee</th></tr>\n"
+        html_code += "<tr><th>Jira ID</th><th>Release Note</th><th>Assignee</th></tr>\n"
         for ticket in whats_new_mobile_ios:
             issue_url = base_url + ticket[0]
             html_code += f'<tr><td><a href="{issue_url}">{ticket[0]}</a></td><td>{ticket[1]}</td><td>{ticket[2]}</td></tr>\n'
@@ -84,10 +83,10 @@ def categorize_jira_tickets():
         html_code += "</toggle>\n"
 
         # Generate Notion page code for Resolved Issues for Mobile (iOS)
-        html_code += "<h2>Resolved Issues for Mobile (iOS)</h2>\n"
+        html_code += "<h2>Resolved Issues-Mobile(iOS)</h2>\n"
         html_code += "<toggle>\n"
         html_code += "<table>\n"
-        html_code += "<tr><th>Jira ID</th><th>Summary</th><th>Assignee</th></tr>\n"
+        html_code += "<tr><th>Jira ID</th><th>Release Note</th><th>Assignee</th></tr>\n"
         for ticket in resolved_issues_mobile_ios:
             issue_url = base_url + ticket[0]
             html_code += f'<tr><td><a href="{issue_url}">{ticket[0]}</a></td><td>{ticket[1]}</td><td>{ticket[2]}</td></tr>\n'
@@ -95,10 +94,10 @@ def categorize_jira_tickets():
         html_code += "</toggle>\n"
 
         # Generate Notion page code for What's New for Mobile (Android)
-        html_code += "<h2>What's New for Mobile (Android)</h2>\n"
+        html_code += "<h2>What's New and Enhancements- Mobile(Android)</h2>\n"
         html_code += "<toggle>\n"
         html_code += "<table>\n"
-        html_code += "<tr><th>Jira ID</th><th>Summary</th><th>Assignee</th></tr>\n"
+        html_code += "<tr><th>Jira ID</th><th>Release Note</th><th>Assignee</th></tr>\n"
         for ticket in whats_new_mobile_android:
             issue_url = base_url + ticket[0]
             html_code += f'<tr><td><a href="{issue_url}">{ticket[0]}</a></td><td>{ticket[1]}</td><td>{ticket[2]}</td></tr>\n'
@@ -106,10 +105,10 @@ def categorize_jira_tickets():
         html_code += "</toggle>\n"
 
         # Generate Notion page code for Resolved Issues for Mobile (Android)
-        html_code += "<h2>Resolved Issues for Mobile (Android)</h2>\n"
+        html_code += "<h2>Resolved Issues-Mobile(Android)</h2>\n"
         html_code += "<toggle>\n"
         html_code += "<table>\n"
-        html_code += "<tr><th>Jira ID</th><th>Summary</th><th>Assignee</th></tr>\n"
+        html_code += "<tr><th>Jira ID</th><th>Release Note</th><th>Assignee</th></tr>\n"
         for ticket in resolved_issues_mobile_android:
             issue_url = base_url + ticket[0]
             html_code += f'<tr><td><a href="{issue_url}">{ticket[0]}</a></td><td>{ticket[1]}</td><td>{ticket[2]}</td></tr>\n'
@@ -121,7 +120,7 @@ def categorize_jira_tickets():
     with open(save_path, 'w') as result_file:
         result_file.write(html_code)
 
-    print("\nTicket categorization completed!")
+    print("\nCongratulations, your release note is successfully generated!")
 
 
 # Run the categorization function
