@@ -48,28 +48,31 @@ To add a custom field in JIRA, refer [here](https://support.atlassian.com/jira-c
 
 Follow these steps to configure and utilize the JIRA Release Note Generator:
 
-1. **Clone the Repository**: Start by cloning this GitHub repository to your local machine.
+1. **Create a project in Pycharm**: Creat a project in Pycharm and add a suitable name for your project. To know the detailed steps, refer [here](https://www.jetbrains.com/help/pycharm/creating-empty-project.html).
 
-2. **Install Dependencies**: Navigate to the project directory and install the required dependencies using the following command:
+3. **Download CSV file from JIRA and copy its file path**: Download the CSV file from JIRA. Copy the absolute path of the .csv file.
+
+5. **Map the Fields of CSV in Python file**: Utilize the query parameters to categorize the filtered issues into subcategories such as Web, Mobile Platforms, What's New, Fixed Issues, and Known Issues.
+
+6. **Execute the python file**: Run the python file.
+
+7. **Enter the path of the CSV file**: Enter the path of the .csv file.
+
+8. **Enter the name and path of the output CSV file**: Enter the desired path of the output file with its name and extension as .html.
    
-   ```bash
-   pip install -r requirements.txt
-   ```
+9. **Open the generated file**: Open the generated .html release notes in a web browser to review the outcome. 
 
-3. **CSV Import and Parsing**: Import the CSV file obtained from JIRA into the project. Use Python to parse the CSV file and extract the necessary information.
-
-4. **Filtering with Custom Query**: Implement the custom JIRA query to filter the relevant release note issues according to your project's criteria.
-
-5. **Categorization**: Utilize the query parameters to categorize the filtered issues into subcategories such as Web, Mobile Platforms, What's New, Fixed Issues, and Known Issues.
-
-6. **HTML Release Notes Generation**: Generate .html release notes using the categorized issue data. You can use Python's HTML templating libraries to structure the release notes effectively.
-
-7. **Run the Script**: Execute the Python script to generate the release notes in .html format. Ensure that the script captures the custom field content for each issue.
-
-8. **Review and Share**: Open the generated .html release notes in a web browser to review the outcome. Share these organized release notes with your team or stakeholders to keep them informed about the changes in your project.
+10. **Customize the Output**: Customize the output forms based on your authoring tool such as .xml, .html, etc.
 
 ## Conclusion
 
-By following these steps, you can automate the process of generating release notes using a CSV file sourced from JIRA. This project aims to enhance collaboration and communication within your team by providing clear and concise release note documentation.
+By following these steps, you can automate the process of generating release notes using a CSV file sourced from JIRA.
 
-Feel free to customize and expand upon this project to suit your specific requirements. If you encounter any issues or have suggestions for improvement, please don't hesitate to raise them in the project's GitHub repository. Happy documenting! 📝🌟
+Feel free to customize and expand upon this project to suit your specific requirements. If you encounter any issues or have suggestions for improvement, please don't hesitate to raise them in the project's GitHub repository. 
+
+Happy documenting! 📝🌟
+
+
+**Author**: **Balaji Jayaraman**
+
+**LinkedIn Profile**: https://www.linkedin.com/in/balajijayaramantechwriter/
