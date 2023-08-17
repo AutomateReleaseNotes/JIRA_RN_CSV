@@ -62,9 +62,11 @@ Follow these steps to configure and utilize the JIRA Release Note Generator:
 
 3. **Copy the code**: Copy the code given in ***jira-rn.py***.
 
-4. **Download CSV file from JIRA and copy its file path**: Download the CSV file from JIRA. Copy the absolute path of the .csv file.
+4. **Update the Release Note**: Update the release note field in the all the JIRA issues filtered in your release notes query. **This step is important before generation of release note.**
 
-5. **Map the Fields of CSV in Python file**: Utilize the query parameters to categorize the filtered issues into subcategories such as Web, Mobile Platforms, What's New, Fixed Issues, and Known Issues.
+5. **Download CSV file from JIRA and copy its file path**: Download the CSV file from JIRA. Copy the absolute path of the .csv file.
+
+6. **Map the Fields of CSV in Python file**: Utilize the query parameters to categorize the filtered issues into subcategories such as Web, Mobile Platforms, What's New, Fixed Issues, and Known Issues.
 In the CSV file, note down the following columns and their column numbers. In JIRA the column numbers starts from 0. The column number given here is for reference and actual columns vary in your instance.
 
 <div align="center">
@@ -95,39 +97,39 @@ Modify the column numbers starting from **line 27**.
 
 ## Sample Generated Output
 
-## What's New for Web App
+## What's New and Enhancements-Web
 
-| Jira ID | Summary | Assignee |
+| Jira ID | Release Note | Assignee |
 | --- | --- | --- |
 |  |  |  |
 
-## Resolved Issues for Web App
+## Resolved Issues-Web
 
-| Jira ID | Summary | Assignee |
+| Jira ID | Release Note | Assignee |
 | --- | --- | --- |
 |  |  |  |
 
-## What's New for Mobile (iOS)
+## What's New and Enhancements-Mobile(iOS)
 
-| Jira ID | Summary | Assignee |
+| Jira ID | Release Note | Assignee |
 | --- | --- | --- |
 |  |  |  |
 
-## Resolved Issues for Mobile (iOS)
+## Resolved Issues-Mobile(iOS)
 
-| Jira ID | Summary | Assignee |
+| Jira ID | Release Note | Assignee |
 | --- | --- | --- |
 |  |  |  |
 
-## What's New for Mobile (Android)
+## What's New and Enhancements- Mobile(Android)
 
-| Jira ID | Summary | Assignee |
+| Jira ID | Release Note | Assignee |
 | --- | --- | --- |
 |  |  |  |
 
-## Resolved Issues for Mobile (Android)
+## Resolved Issues-Mobile(Android)
 
-| Jira ID | Summary | Assignee |
+| Jira ID | Release Note | Assignee |
 | --- | --- | --- |
 |  |  |  |
 
