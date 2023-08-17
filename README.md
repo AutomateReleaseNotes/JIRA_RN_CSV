@@ -7,9 +7,17 @@ This project is designed to generate release notes by using a CSV file sourced f
 
 ## Input and Output Formats
 
-**Input**: .csv
-**Output**: .html
-**Script Language used** : Python
+<div align="center">
+
+| I/O   | Value|
+| -------- | ------- |
+| Input  | .csv  |
+| Output |.html    |
+| Script Language Type | Python|
+
+
+</div>
+
 
 ## Prerequisites
 
@@ -48,21 +56,80 @@ To add a custom field in JIRA, refer [here](https://support.atlassian.com/jira-c
 
 Follow these steps to configure and utilize the JIRA Release Note Generator:
 
-1. **Create a project in Pycharm**: Creat a project in Pycharm and add a suitable name for your project. To know the detailed steps, refer [here](https://www.jetbrains.com/help/pycharm/creating-empty-project.html).
+1. **Create a project in Pycharm**: Create a project in Pycharm and add a suitable name for your project. To know the detailed steps, refer [here](https://www.jetbrains.com/help/pycharm/creating-empty-project.html).
 
-3. **Download CSV file from JIRA and copy its file path**: Download the CSV file from JIRA. Copy the absolute path of the .csv file.
+2. **Create a python file** : Create a python file in the newly created project. Say: ***jira-rn.py***
+
+3. **Copy the code**: Copy the code given in ***jira-rn.py***.
+
+4. **Download CSV file from JIRA and copy its file path**: Download the CSV file from JIRA. Copy the absolute path of the .csv file.
 
 5. **Map the Fields of CSV in Python file**: Utilize the query parameters to categorize the filtered issues into subcategories such as Web, Mobile Platforms, What's New, Fixed Issues, and Known Issues.
+In the CSV file, note down the following columns and their column numbers. In JIRA the column numbers starts from 0. The column number given here is for reference and actual columns vary in your instance.
 
-6. **Execute the python file**: Run the python file.
-
-7. **Enter the path of the CSV file**: Enter the path of the .csv file.
-
-8. **Enter the name and path of the output CSV file**: Enter the desired path of the output file with its name and extension as .html.
+<div align="center">
    
-9. **Open the generated file**: Open the generated .html release notes in a web browser to review the outcome. 
+| Column   | Column Number |
+| -------- | ------- |
+| Summary |0    |
+| Issue Key| 1|
+| Issue Type  | 4  |
+| Project Key| 6|
+|Status| 5|
+| Release Note    | May vary   |
+|Assignee|14|
 
-10. **Customize the Output**: Customize the output forms based on your authoring tool such as .xml, .html, etc.
+</div>
+
+Modify the column numbers starting from **line 27**.
+
+7. **Execute the python file**: Run the python file.
+
+8. **Enter the path of the CSV file**: Enter the path of the .csv file.
+
+9. **Enter the name and path of the output CSV file**: Enter the desired path of the output file with its name and extension as .html.
+   
+10. **Open the generated file**: Open the generated .html release notes in a web browser to review the outcome. 
+
+11. **Customize the Output**: Customize the output forms based on your authoring tool such as .xml, .html, etc.
+
+## Sample Generated Output
+
+## What's New for Web App
+
+| Jira ID | Summary | Assignee |
+| --- | --- | --- |
+|  |  |  |
+
+## Resolved Issues for Web App
+
+| Jira ID | Summary | Assignee |
+| --- | --- | --- |
+|  |  |  |
+
+## What's New for Mobile (iOS)
+
+| Jira ID | Summary | Assignee |
+| --- | --- | --- |
+|  |  |  |
+
+## Resolved Issues for Mobile (iOS)
+
+| Jira ID | Summary | Assignee |
+| --- | --- | --- |
+|  |  |  |
+
+## What's New for Mobile (Android)
+
+| Jira ID | Summary | Assignee |
+| --- | --- | --- |
+|  |  |  |
+
+## Resolved Issues for Mobile (Android)
+
+| Jira ID | Summary | Assignee |
+| --- | --- | --- |
+|  |  |  |
 
 ## Conclusion
 
