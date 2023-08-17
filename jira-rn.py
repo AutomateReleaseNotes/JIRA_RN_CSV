@@ -28,6 +28,7 @@ def categorize_jira_tickets():
         for row in reader:
             # Refer JIRA issue type in .csv file and modify the columns
             ticket_type = row[4]
+            # To replace Ticket summary to Release Note use Release Note column value
             ticket_summary = row[0]
             ticket_assignee = row[14]
             ticket_key = row[1]
